@@ -9,18 +9,6 @@ const HatsPage  = () => (
   </div>
 );
 
-const TopicList  = () => (
-  <div>
-    <h1>TOPIC LIST PAGE</h1>
-  </div>
-);
-
-const TopicDetail  = () => (
-  <div>
-    <h1>TOPIC DETAIL PAGE</h1>
-  </div>
-);
-
 
 function App() {
   return (
@@ -28,7 +16,6 @@ function App() {
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/hats' component={HatsPage}/>
-        <Route exact path='/hats/:hatNumber' component={HatsPage}/>
       </Switch>
     </div>
   );
