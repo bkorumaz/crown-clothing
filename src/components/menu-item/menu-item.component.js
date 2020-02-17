@@ -1,11 +1,14 @@
 import React from 'react'
 import './menu-item.styles.scss'
+import {withRouter} from 'react-router-dom'
 
-function MenuItem ({title, imageUrl}) {
+function MenuItem ({title, imageUrl, size, history, linkUrl, match}) {
 
     //we don't want content's size to be increased by hover effect. that's why we don't wrap content with background-image div.
     return (
-        <div className="menu-item">
+        <div 
+        className={`${size} menu-item`}
+        onClick={() => history.push(`${match.url}${linkUrl}`)}>
             <div className='background-image'
             style={{backgroundImage: `url(${imageUrl}`}}/>
             <div className="content">
@@ -17,4 +20,4 @@ function MenuItem ({title, imageUrl}) {
 }
 
 
-export default MenuItem
+export default withRouter(MenuItem);
