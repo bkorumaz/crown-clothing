@@ -3,10 +3,13 @@ import './menu-item.styles.scss'
 
 function MenuItem ({title, imageUrl}) {
 
+    //we don't want content's size to be increased by hover effect. that's why we don't wrap content with background-image div.
     return (
-        <div style={{backgroundImage: `url(${imageUrl}`}} className="menu-item">
+        <div className="menu-item">
+            <div className='background-image'
+            style={{backgroundImage: `url(${imageUrl}`}}/>
             <div className="content">
-                <h1 className="title">{title}</h1>
+                <h1 className="title">{title.toUpperCase()}</h1>
                 <span className="subtitle">SHOP NOW</span>
             </div>
         </div>

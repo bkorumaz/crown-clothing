@@ -30,8 +30,8 @@ function Directory (props) {
           linkUrl: 'shop/womens'
         },
         {
-          title: 'mens',
-          imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
+          title: 'mens', //https://i.ibb.co/R70vBrQ/men.png
+          imageUrl: 'https://lh3.googleusercontent.com/proxy/fUa1M6cuB-EpF7wooZyqfGWe2y-9Uc0xXfsWn6Bz9mwGZN2VkFGVVS9gOR1y0EVMM4maf6ue3U3TasEz_eFMndWcMnWz1eQ80CW23IpgDLzDxJr0LXl0zFVBmqimNFIBknCNOp3FwLkH2TFW1izzUF6zYB6Xvgeh_2w', 
           size: 'large',
           id: 5,
           linkUrl: 'shop/mens'
