@@ -3,7 +3,6 @@ import './menu-item.styles.scss'
 import {withRouter} from 'react-router-dom'
 
 function MenuItem ({title, imageUrl, size, history, linkUrl, match}) {
-
     //we don't want content's size to be increased by hover effect. that's why we don't wrap content with background-image div.
     return (
         <div 
