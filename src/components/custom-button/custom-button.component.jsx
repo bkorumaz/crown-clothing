@@ -6,7 +6,7 @@ function CustomButton({ children, ...otherProps }) {
 
 
     return(
-        <button className='custom-button' >
+        <button className='custom-button' {...otherProps}>
             {children}
         </button>
     )
