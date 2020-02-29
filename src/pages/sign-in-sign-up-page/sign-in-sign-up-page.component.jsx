@@ -1,11 +1,17 @@
 import React, {useState} from 'react';
-import FormInput from '../../components/form-input/form-input'
-import SignIn from '../../components/sign-in/sign-in.component'
+
+import SignIn from '../../components/sign-in/sign-in.component';
+import SignUp from '../../components/sign-up/sign-up.component';
+
+import './sign-in-sign-up-page.styles.scss';
 
 
 function SignInSignUpPage() {
     return(
-        <SignIn/>
+        <div className='sign-in-and-sign-up'>
+            <SignIn/>
+            <SignUp/>
+        </div>
     )
 }
 
