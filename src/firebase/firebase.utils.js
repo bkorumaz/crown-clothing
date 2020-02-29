@@ -31,12 +31,11 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         createdAt,
         ...additionalData
       });
-
-
     } catch(error) {
       console.log('error creating user ' + error);
     }
   }
+  console.log('from firebaseutils: '+ userRef)
   return userRef;
 }
 
