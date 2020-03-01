@@ -10,34 +10,37 @@ import './sign-up.styles.scss';
 
 function SignUp() {
     
-    const [user, setUser] = useState({ 
+    const [userState, setUserState] = useState({ 
         displayName:'', email:'', password:'', confirmPassword:'' 
     });
 
     
     const handleChange = event => {
         const { value, name } = event.target;
-        setUser({...user, [ name ] : value });  //this notation is very important
+        setUserState({...userState, [ name ] : value });  //this notation is very important
     } 
     
-    
+
     const handleSubmit = async event => {
         event.preventDefault();
 
-        const {displayName, email, password} = user;
+        const {displayName, email, password, confirmPassword} = userState;
+        console.log('display name is '+ displayName);
+        console.log('user is ' + userState);
 
-        if(user.password !== user.confirmPassword) {
+        if(password !== confirmPassword) {
             alert("passwords don't match")
             return;
         }
 
         try {
-            const { userAuth } = await auth.createUserWithEmailAndPassword(email, password);
-            await createUserProfileDocument(userAuth, {displayName});
+            const { user } = await auth.createUserWithEmailAndPassword(email, password);
 
-            setUser({ 
+            await createUserProfileDocument(user, {displayName} );
+
+           /* setUser({ 
                 displayName:'', email:'', password:'', confirmPassword:'' 
-            })
+            }) */
 
         } catch(error) {
             console.log('an error occured signing up :' + error);
@@ -55,7 +58,7 @@ function SignUp() {
                 <FormInput
                 type='text'
                 name='displayName'
-                value={user.displayName}
+                value={userState.displayName}
                 onChange={handleChange}
                 label='Display Name'
                 required
@@ -63,7 +66,7 @@ function SignUp() {
                 <FormInput
                 type='email'
                 name='email'
-                value={user.email}
+                value={userState.email}
                 onChange={handleChange}
                 label='Email'
                 required
@@ -71,7 +74,7 @@ function SignUp() {
                 <FormInput
                 type='password'
                 name='password'
-                value={user.password}
+                value={userState.password}
                 onChange={handleChange}
                 label='Password'
                 required
@@ -79,13 +82,13 @@ function SignUp() {
                 <FormInput
                 type='password'
                 name='confirmPassword'
-                value={user.confirmPassword}
+                value={userState.confirmPassword}
                 onChange={handleChange}
                 label='Confirm Password'
                 required
                 />
                 <CustomButton type='submit'>SIGN UP</CustomButton>
-                <span>{ user.displayName }</span>
+                <span>{ userState.displayName }</span>
             </form>
         </div>
     )
