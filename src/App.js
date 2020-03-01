@@ -14,7 +14,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-  const unsubscribe = auth.onAuthStateChanged(async userAuth => {
+  const unsubscribe = auth.onAuthStateChanged(async userAuth => {  //we need to unsubscribe when componentWillUnmount
     if(userAuth) {
       const userRef = await createUserProfileDocument(userAuth);
       userRef.onSnapshot(snapShot => {
