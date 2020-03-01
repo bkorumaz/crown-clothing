@@ -35,12 +35,11 @@ function SignUp() {
 
         try {
             const { user } = await auth.createUserWithEmailAndPassword(email, password);
-
             await createUserProfileDocument(user, {displayName} );
 
-           /* setUser({ 
+           setUserState({ 
                 displayName:'', email:'', password:'', confirmPassword:'' 
-            }) */
+            })
 
         } catch(error) {
             console.log('an error occured signing up :' + error);
