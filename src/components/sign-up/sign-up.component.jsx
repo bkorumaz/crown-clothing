@@ -25,8 +25,6 @@ function SignUp() {
         event.preventDefault();
 
         const {displayName, email, password, confirmPassword} = userState;
-        console.log('display name is '+ displayName);
-        console.log('user is ' + userState);
 
         if(password !== confirmPassword) {
             alert("passwords don't match")
