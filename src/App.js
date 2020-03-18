@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
@@ -7,9 +7,9 @@ import SignInSignUpPage from './pages/sign-in-sign-up-page/sign-in-sign-up-page.
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
 import { setCurrentUser } from './redux/user/use.actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Redirect } from 'react-router-dom'
 
 function App() {
 
@@ -26,21 +26,21 @@ function App() {
         }));
       });
     } else {
-      dispatch(setCurrentUser(userAuth))       // set currentUser to null
+      dispatch(setCurrentUser(userAuth))  // set currentUser to null
     }
-
   })
   return () => {unsubscribe();}
   }, []
   );
 
+  const currentUser = useSelector(state => state.user.currentUser);
 
   return (
     <div>
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage}/>
-        <Route  path='/signin' component={SignInSignUpPage}/>
+        <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/'/>) : <SignInSignUpPage/>}/>
         <Route  path='/shop' component={ShopPage}/>
       </Switch>
     </div>
