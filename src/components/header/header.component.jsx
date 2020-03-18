@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { auth } from '../../firebase/firebase.utils'
 import {ReactComponent as Logo} from '../../assets/crown.svg'  //special syntax for importing svg in react 
 import './header.styles.scss';
-import { setCurrentUser } from '../../redux/user/use.actions';
 import { useSelector } from 'react-redux';
 
 function Header () {

@@ -6,26 +6,29 @@ import Header from './components/header/header.component';
 import SignInSignUpPage from './pages/sign-in-sign-up-page/sign-in-sign-up-page.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
+import { setCurrentUser } from './redux/user/use.actions';
+import { useDispatch } from 'react-redux';
+
 import { Route, Switch } from 'react-router-dom'
 
 function App() {
 
-
-  const [currentUser, setCurrentUser] = useState(null);
+  const dispatch = useDispatch();
 
   useEffect(() => {
   const unsubscribe = auth.onAuthStateChanged(async userAuth => {  //we need to unsubscribe when componentWillUnmount
     if(userAuth) {
       const userRef = await createUserProfileDocument(userAuth);
       userRef.onSnapshot(snapShot => {
-        setCurrentUser({
+        dispatch(setCurrentUser({
           id: snapShot.id,
           ...snapShot.data()
-        });
+        }));
       });
     } else {
-      setCurrentUser(userAuth) // set currentUser to null
+      dispatch(setCurrentUser(userAuth))       // set currentUser to null
     }
+
   })
   return () => {unsubscribe();}
   }, []
