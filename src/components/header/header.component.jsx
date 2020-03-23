@@ -5,6 +5,7 @@ import {ReactComponent as Logo} from '../../assets/crown.svg'  //special syntax 
 import './header.styles.scss';
 import { useSelector } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
+import CartDropdown from '../cart-dropdown/cart-dropdown.components';
 
 function Header () {
 
@@ -27,6 +28,7 @@ function Header () {
                 }
                 <CartIcon/>
             </div>
+            <CartDropdown/>
         </div>
     )
 }
