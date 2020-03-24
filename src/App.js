@@ -6,7 +6,7 @@ import Header from './components/header/header.component';
 import SignInSignUpPage from './pages/sign-in-sign-up-page/sign-in-sign-up-page.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
 
-import { setCurrentUser } from './redux/user/use.actions';
+import { setCurrentUser } from './redux/user/user.actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Route, Switch, Redirect } from 'react-router-dom'

@@ -10,6 +10,8 @@ import CartDropdown from '../cart-dropdown/cart-dropdown.components';
 function Header () {
 
     const currentUser = useSelector( state => state.user.currentUser );
+    const cartVisibility = useSelector( state => state.cart.visibility );
+
 
     return(
         <div className='header'>
@@ -26,9 +28,9 @@ function Header () {
                     :
                     <Link to='/signin' className='option'>SIGN-IN</Link>
                 }
-                <CartIcon/>
+                <CartIcon />
             </div>
-            <CartDropdown/>
+            { cartVisibility ? <CartDropdown/> : null }
         </div>
     )
 }
