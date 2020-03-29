@@ -10,6 +10,7 @@ import { setCurrentUser } from './redux/user/user.actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Route, Switch, Redirect } from 'react-router-dom'
+import { selectCurrentUser } from './redux/user/user.selectors';
 
 function App() {
 
@@ -33,7 +34,7 @@ function App() {
   }, []
   );
 
-  const currentUser = useSelector(state => state.user.currentUser);
+  const currentUser = useSelector(state => selectCurrentUser(state));
 
   return (
     <div>

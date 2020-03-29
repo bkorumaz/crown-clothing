@@ -6,11 +6,13 @@ import './header.styles.scss';
 import { useSelector } from 'react-redux';
 import CartIcon from '../cart-icon/cart-icon.component';
 import CartDropdown from '../cart-dropdown/cart-dropdown.components';
+import { selectCartVisibility } from '../../redux/cart/cart.selectors';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
 
 function Header () {
 
-    const currentUser = useSelector( state => state.user.currentUser );
-    const cartVisibility = useSelector( state => state.cart.visibility );
+    const currentUser = useSelector( state => selectCurrentUser(state)  );
+    const cartVisibility = useSelector( state => selectCartVisibility(state) );
 
 
     return(

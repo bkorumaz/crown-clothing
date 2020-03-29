@@ -12,7 +12,6 @@ function CartIcon () {
 
     const dispatch = useDispatch();
     const cartItemsCount = useSelector( state => selectCartItemsCount(state) );
-
     return (
     <div className='cart-icon' onClick={() => dispatch(setCartVisibility())}>
         <ShoppingIcon className='shopping-icon'/>
