@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import HomePage from './pages/homepage/homepage.component';
 import ShopPage from './pages/shoppage/shoppage.component';
+import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.component';
 import SignInSignUpPage from './pages/sign-in-sign-up-page/sign-in-sign-up-page.component'
 import { auth, createUserProfileDocument } from './firebase/firebase.utils'
@@ -42,10 +43,12 @@ function App() {
       <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/'/>) : <SignInSignUpPage/>}/>
-        <Route  path='/shop' component={ShopPage}/>
+        <Route path='/shop' component={ShopPage}/> 
+        <Route exact path='/checkout' component={CheckoutPage} />
       </Switch>
     </div>
   );
+  // we don't put exact to /shop value because we will append values on it
 }
 
 export default App;
