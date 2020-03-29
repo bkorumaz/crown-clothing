@@ -6,20 +6,14 @@ import { useSelector } from 'react-redux';
 import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 
-const CartItems = () => {
-    const cartItems = useSelector( state => selectCartItems(state) );
-    return(
-        <div>
-        { cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />) }
-        </div>
-    );
-}
-
 const CartDropdown = () => {
+    const cartItems = useSelector( state => selectCartItems(state) );
     return(
         <div className='cart-dropdown'>
             <div className='cart-items'>
-                <CartItems/>
+                {cartItems.length ?
+                    cartItems.map(cartItem => <CartItem key={cartItem.id} item={cartItem} />) :
+                    <span className='empty-message'>Your Cart is Empty</span> }
             </div>
             <CustomButton>GO TO CHECKOUT</CustomButton>
         </div>
