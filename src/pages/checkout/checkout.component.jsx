@@ -2,6 +2,7 @@ import React from 'react';
 import './checkout.styles.scss';
 import { useSelector } from 'react-redux';
 import { selectCartTotalPrice, selectCartItems } from '../../redux/cart/cart.selectors';
+import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 function CheckoutPage(){
     
@@ -27,7 +28,7 @@ function CheckoutPage(){
                     <span>Remove</span>
                 </div>
             </div>
-            {cartItems.map( item =>item.name )}
+            {cartItems.map( cartItem => <CheckoutItem key={ cartItem.id } cartItem={ cartItem } /> )}
             <div className='total'>
                 <span>TOTAL: ${totalPrice}</span>
             </div>
