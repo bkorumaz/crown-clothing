@@ -1,5 +1,5 @@
 import { CartActionTypes } from './cart.action-types';
-import { addItemToCart } from './cart.utils';
+import { addItemToCart, decreaseItem } from './cart.utils';
 
 const INITIAL_STATE = {
     visibility : false,
@@ -17,6 +17,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 cartItems: addItemToCart(state.cartItems, action.payload)
+            }
+        case CartActionTypes.DECREASE_ITEM:
+            return {
+                ...state,
+                cartItems: decreaseItem( state.cartItems, action.payload )
             }
         case CartActionTypes.CLEAR_ITEM_FROM_CART:
             return {
