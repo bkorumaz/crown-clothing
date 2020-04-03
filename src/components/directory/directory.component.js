@@ -1,48 +1,11 @@
-import React, {useState} from 'react'
+import React from 'react'
 import "./directory.styles.scss"
 import MenuItem from "../menu-item/menu-item.component"
+import { useSelector}  from 'react-redux'
+import { selectDirectorySections } from '../../redux/directory/directory.selectors'
 
 function Directory (props) {
-    const [sections, setSections] = useState([
-        {
-          title: 'hat',
-          //imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-          imageUrl: "/images/hats.png",
-          id: 1,
-          linkUrl: 'shop/hats'
-        },
-        {
-          title: 'jackets',
-          //imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-          imageUrl: "/images/jackets.png",
-          id: 2,
-          linkUrl: 'shop/jackets'
-        },
-        {
-          title: 'sneakers',
-          //imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-          imageUrl: "/images/sneakers.png",
-          id: 3,
-          linkUrl: 'shop/sneakers'
-        },
-        {
-          title: 'women',
-          //imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-          imageUrl: "/images/women.png",
-          size: 'large',
-          id: 4,
-          linkUrl: 'shop/women'
-        },
-        {
-          title: 'men', 
-          //imageUrl: https://i.ibb.co/R70vBrQ/men.png
-          imageUrl: "/images/men.png",
-          size: 'large',
-          id: 5,
-          linkUrl: 'shop/men'
-        }
-      ]
-      );
+    const sections = useSelector(state => selectDirectorySections(state));
 
     return (
         <div className="directory-menu">
