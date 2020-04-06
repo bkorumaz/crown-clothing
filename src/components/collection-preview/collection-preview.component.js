@@ -10,7 +10,7 @@ function CollectionPreview ({title, items}) {
         <div className='preview'> { 
         items
         .filter( ( item, index )=> index < 4)
-        .map( (item) => (<Suspense fallback={<h2>Loading</h2>}><CollectionItem key={item.id} item={item}/></Suspense>) ) }
+        .map( (item) => (<Suspense key={item.id} fallback={<h2>Loading</h2>}><CollectionItem key={item.id} item={item}/></Suspense>) ) }
         </div>
     </div>
     
