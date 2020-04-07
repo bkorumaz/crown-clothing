@@ -28,7 +28,7 @@ const INITIAL_STATE = {
             imageUrl: "/images/women.png",
             size: 'large',
             id: 4,
-            linkUrl: 'shop/women'
+            linkUrl: 'shop/womens'
           },
           {
             title: 'men', 
@@ -36,7 +36,7 @@ const INITIAL_STATE = {
             imageUrl: "/images/men.png",
             size: 'large',
             id: 5,
-            linkUrl: 'shop/men'
+            linkUrl: 'shop/mens'
           }
         ]
         };
