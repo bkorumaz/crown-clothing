@@ -1,4 +1,8 @@
-## http://project-crown-live.herokuapp.com/
+## Live
+
+### http://project-crown-live.herokuapp.com/
+Live version can be found in the link above
+
 
 ### `npm install & npm start`
 
