@@ -85,7 +85,6 @@ function SignUp() {
                 required
                 />
                 <CustomButton type='submit'>SIGN UP</CustomButton>
-                <span>{ userState.displayName }</span>
             </form>
         </div>
     )
