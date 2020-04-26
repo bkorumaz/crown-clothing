@@ -32,7 +32,7 @@ function App() {
     }
   })
   return () => {unsubscribe();}
-  } // TODO: check this part
+  }, [] // TODO: check this part
   );
 
   const currentUser = useSelector(state => selectCurrentUser(state));
