@@ -5,17 +5,19 @@ import ShopPage from './pages/shoppage/shoppage.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 import Header from './components/header/header.component';
 import SignInSignUpPage from './pages/sign-in-sign-up-page/sign-in-sign-up-page.component'
-import { auth, createUserProfileDocument } from './firebase/firebase.utils'
+import { auth, createUserProfileDocument, addCollectionsAndDocuments } from './firebase/firebase.utils'
 
 import { setCurrentUser } from './redux/user/user.actions';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { Route, Switch, Redirect } from 'react-router-dom'
 import { selectCurrentUser } from './redux/user/user.selectors';
+import { selectCollectionsForOverview } from './redux/shop/shop.selectors'
 
 function App() {
 
   const dispatch = useDispatch();
+  //const collectionsArray = useSelector(state => selectCollectionsForOverview(state));
 
   useEffect(() => {
   const unsubscribe = auth.onAuthStateChanged(async userAuth => {  //we need to unsubscribe when componentWillUnmount
@@ -27,6 +29,7 @@ function App() {
           ...snapShot.data()
         }));
       });
+      //addCollectionsAndDocuments('collections', collectionsArray.map( ({ title, items }) => ({ title, items }) ));
     } else {
       dispatch(setCurrentUser(userAuth))  // set currentUser to null
     }
@@ -36,7 +39,7 @@ function App() {
   );
 
   const currentUser = useSelector(state => selectCurrentUser(state));
-
+  
   return (
     <div>
       <Header />
