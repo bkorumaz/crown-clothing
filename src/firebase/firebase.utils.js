@@ -60,7 +60,7 @@ export const convertCollectionsSnopshotToMap = (collections) => {
   });
 
   return transformedCollection.reduce( (accumulator, collection) => {
-    accumulator[collection.title.toLowerCase()] = collection;
+    accumulator[collection.title.toLowerCase()] = collection; // a good example for usage of reduce() function
     return accumulator;
   }, {});
 }

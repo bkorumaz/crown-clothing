@@ -18,10 +18,10 @@ function ShopPage({ match }) {
       async (snapshot) => {
         const transformedData = convertCollectionsSnopshotToMap(snapshot)
         dispatch(updateCollections(transformedData));
-        return unsubscribeFromSnapshot;
       }
     );
-  }, []);
+    return unsubscribeFromSnapshot; // todo: works in three different ways. without unsubscribe or calling this return function in onSnapshot method. or should this be an async func? 
+  }, []); //todo: ask this in stackoverflow
 
   return (
     <div className="shop-page">
