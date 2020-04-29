@@ -7,7 +7,7 @@ import './collection.styles.scss';
 const CollectionPage = ({ match }) => {
   const collection = useSelector((state) =>
     selectCollection(match.params.collectionId)(state)
-  ); //investigate this
+  ); //todo: investigate this
 
   const { title, items } = collection;
 
