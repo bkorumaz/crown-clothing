@@ -9,16 +9,20 @@ export const selectCollections = createSelector(
 
 export const selectCollectionsForOverview = createSelector(
   [selectCollections],
-  (collections) => collections ? Object.values(collections) : []
+  (collections) => (collections ? Object.values(collections) : [])
 );
 
 export const selectCollection = (collectionUrlParam) =>
-  createSelector(
-    [selectCollections],
-    (collections) => (collections ? collections[collectionUrlParam] : null)
+  createSelector([selectCollections], (collections) =>
+    collections ? collections[collectionUrlParam] : null
   );
 
-  export const selectIsCollectionFetching = createSelector(
-    [selectShop],
-    shop => shop.isFetching
-  );
+export const selectIsCollectionFetching = createSelector(
+  [selectShop],
+  (shop) => shop.isFetching
+);
+
+export const selectIsCollectionsLoaded = createSelector(
+  [selectShop],
+  (shop) => !!shop.collections
+);
