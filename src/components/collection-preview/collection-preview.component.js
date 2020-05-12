@@ -1,6 +1,6 @@
-import React, { lazy, Suspense } from 'react';
+import React from 'react';
 import './collection-preview.styles.scss'
-const CollectionItem = lazy( () => import('../collection-item/collection-item.component'));
+import CollectionItem from '../collection-item/collection-item.component';
 
 function CollectionPreview ({title, items}) {
 
@@ -10,10 +10,9 @@ function CollectionPreview ({title, items}) {
         <div className='preview'> { 
         items
         .filter( ( item, index )=> index < 4)
-        .map( (item) => (<Suspense key={item.id} fallback={<h2>Loading</h2>}><CollectionItem key={item.id} item={item}/></Suspense>) ) }
+        .map( (item) => (<CollectionItem key={item.id} item={item}/>) ) }
         </div>
     </div>
-    
     )
 }
 
