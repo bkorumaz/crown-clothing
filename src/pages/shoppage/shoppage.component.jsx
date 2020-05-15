@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { Route } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
-import { selectIsCollectionFetching, selectIsCollectionsLoaded } from '../../redux/shop/shop.selectors'
-import { fetchCollectionsStartAsync } from '../../redux/shop/shop.actions'
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectIsCollectionFetching,
+  selectIsCollectionsLoaded,
+} from "../../redux/shop/shop.selectors";
+import { fetchCollectionsStartAsync } from "../../redux/shop/shop.actions";
 import CollectionsOverview from "../../components/collections-overview/collections-overview.component";
 import CollectionPage from "../collection/collection.component";
 import WithSpinner from "../../components/with-spinner/with-spinner.component";
@@ -17,12 +20,31 @@ function ShopPage({ match }) {
     dispatch(fetchCollectionsStartAsync());
   }, []);
 
-  const isFetching = useSelector(state => selectIsCollectionFetching(state));
-  const isCollectionsLoaded = useSelector(state => selectIsCollectionsLoaded(state));
+  //const isFetching = useSelector((state) => selectIsCollectionFetching(state)); //todo: we are not using this anymore. change this according to the q/a part in the course
+  const isCollectionsLoaded = useSelector((state) =>
+    selectIsCollectionsLoaded(state)
+  );
   return (
     <div className="shop-page">
-      <Route exact path={`${match.path}`} render={(props) => <CollectionsOverviewWithSpinner isLoading={isFetching} {...props} />} />
-      <Route path={`${match.path}/:collectionId`} render={(props) => <CollectionPageWithSpinner isLoading={!isCollectionsLoaded} {...props} />} />
+      <Route
+        exact
+        path={`${match.path}`}
+        render={(props) => (
+          <CollectionsOverviewWithSpinner
+            isLoading={!isCollectionsLoaded}
+            {...props}
+          />
+        )}
+      />
+      <Route
+        path={`${match.path}/:collectionId`}
+        render={(props) => (
+          <CollectionPageWithSpinner
+            isLoading={!isCollectionsLoaded}
+            {...props}
+          />
+        )}
+      />
     </div>
   );
 }
