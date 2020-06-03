@@ -20,7 +20,7 @@ function ShopPage({ match }) {
     dispatch(fetchCollectionsStartAsync());
   }, []);
 
-  //const isFetching = useSelector((state) => selectIsCollectionFetching(state)); //todo: we are not using this anymore. change this according to the q/a part in the course
+  //const isFetching = useSelector((state) => selectIsCollectionFetching(state)); //todo: I am not using this. It can be used throughout redux-saga part of the course
   const isCollectionsLoaded = useSelector((state) =>
     selectIsCollectionsLoaded(state)
   );
