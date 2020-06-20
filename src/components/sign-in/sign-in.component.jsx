@@ -3,7 +3,7 @@ import './sign-in.styles.scss'
 import FormInput from '../../components/form-input/form-input'
 import CustomButton from '../../components/custom-button/custom-button.component'
 import { auth, signInWithGoogle } from '../../firebase/firebase.utils'
-import { SignInContainer, SignInTitleContainer, ButtonContainer } from './sign-in.styles';
+import { SignInContainer, SignInTitleContainer, ButtonsBarContainer } from './sign-in.styles';
 
 function SignIn() {
 
@@ -32,10 +32,10 @@ function SignIn() {
             <form onSubmit={handleSubmit}>
                 <FormInput name='email' type='email' handleChange={handleChange} value={user.email}  label='email' required />
                 <FormInput name='password' type='password' handleChange={handleChange} value={user.password}  label='password' required />
-                <div className='buttons'>
+                <ButtonsBarContainer>
                     <CustomButton type='submit'> Sign in </CustomButton>
                     <CustomButton onClick={signInWithGoogle} isGoogleSignIn> Sign in with Google </CustomButton>
-                </div>
+                </ButtonsBarContainer>
             </form>
         </SignInContainer>
     )
