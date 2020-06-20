@@ -5,8 +5,8 @@ import CollectionItem from "../../components/collection-item/collection-item.com
 import './collection.styles.scss';
 import { 
   CollectionPageContainer,
-  CollectionPageTitle,
-  CollectionPageItems
+  CollectionPageTitleContainer,
+  CollectionPageItemsContainer
  } from './collection.styles';
 
 const CollectionPage = ({ match }) => {
@@ -18,10 +18,10 @@ const CollectionPage = ({ match }) => {
 
   return (
     <CollectionPageContainer>
-      <CollectionPageTitle>{title}</CollectionPageTitle>
-      <CollectionPageItems>
+      <CollectionPageTitleContainer>{title}</CollectionPageTitleContainer>
+      <CollectionPageItemsContainer>
         { items.map( item => <CollectionItem key={item.id} item={item}/> )}
-      </CollectionPageItems>
+      </CollectionPageItemsContainer>
     </CollectionPageContainer>
   );
 };
